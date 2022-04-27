@@ -4,7 +4,6 @@ defmodule ChatterWeb do
       use Phoenix.Controller, namespace: ChatterWeb
 
       import Plug.Conn
-      import ChatterWeb.Gettext
       alias ChatterWeb.Router.Helpers, as: Routes
     end
   end
@@ -62,7 +61,6 @@ defmodule ChatterWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ChatterWeb.Gettext
     end
   end
 
@@ -85,7 +83,6 @@ defmodule ChatterWeb do
       import Phoenix.View
 
       import ChatterWeb.ErrorHelpers
-      import ChatterWeb.Gettext
       alias ChatterWeb.Router.Helpers, as: Routes
     end
   end

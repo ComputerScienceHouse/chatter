@@ -1,14 +1,7 @@
 import Config
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with esbuild to bundle .js and .css sources.
+# disable cache in dev
 config :chatter, ChatterWeb.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
@@ -28,6 +21,14 @@ config :chatter, ChatterWeb.Endpoint,
       ~r"lib/chatter_web/templates/.*(eex)$"
     ]
   ]
+
+# Configure Keycloak for Dev
+config :keycloak,
+  realm: "csh",
+  site: "https://sso.csh.rit.edu",
+  client_id: "chatter",
+  client_secret: System.get_env("KEYCLOAK_SECRET"),
+  redirect_uri: "http://localhost:4000/oidc/callback"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
