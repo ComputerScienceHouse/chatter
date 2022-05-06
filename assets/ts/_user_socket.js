@@ -33,7 +33,7 @@ let presences = {};
 
 channel.on('presence_state', (state) => {
     presences = Presence.syncState(presences, state);
-    renderOnlineUsers();
+    renderOnlineUsers(presences);
 });
 
 channel.on('presence_diff', (diff) => {

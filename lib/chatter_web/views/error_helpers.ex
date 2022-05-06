@@ -20,7 +20,8 @@ defmodule ChatterWeb.ErrorHelpers do
   @doc """
   Translates an error message using gettext.
   """
-  def translate_error({msg, opts}) do
-    msg # no translate since target audiance is CSH only 
+  def translate_error({msg, _opts}) do
+    # no translate since target audiance is CSH only 
+    msg
   end
 end

@@ -10,6 +10,8 @@ defmodule Chatter.Application do
       {Phoenix.PubSub, name: Chatter.PubSub},
       ChatterWeb.Presence,
       ChatterWeb.Endpoint,
+      ChatterWeb.State.Bucket,
+      ChatterWeb.State.Supervisor
     ]
 
     opts = [strategy: :one_for_one, name: Chatter.Supervisor]

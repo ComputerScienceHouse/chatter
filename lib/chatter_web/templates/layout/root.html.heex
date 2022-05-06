@@ -10,6 +10,7 @@
       <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/csh-material-bootstrap@4.5.2/dist/csh-material-bootstrap.min.css" />
       <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
+      <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css" )}>
 </head>
 
 <body>
@@ -24,17 +25,13 @@
           </li>
           <%= if @user.is_admin? do %>
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard">Admin</a>
+              <a class="nav-link" href="/status">Admin</a>
             </li>
           <% end %>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
   </header>

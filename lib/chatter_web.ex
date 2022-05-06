@@ -87,6 +87,22 @@ defmodule ChatterWeb do
     end
   end
 
+  def stateful_genserver do
+    quote do
+      use GenServer
+
+      def reply(response, state) do
+        ChatterWeb.State.Bucket.put(@bucket_key, state)
+        {:reply, response, state}
+      end
+
+      def no_reply(state) do
+        ChatterWeb.State.Bucket.put(@bucket_key, state)
+        {:noreply, state}
+      end
+    end
+  end
+
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """

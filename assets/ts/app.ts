@@ -2,7 +2,7 @@ import 'phoenix_html'; // Include phoenix_html to handle method=PUT/DELETE in fo
 import { Socket } from 'phoenix'; // Establish Phoenix Socket and LiveView configuration.
 import { LiveSocket } from 'phoenix_live_view';
 
-import './user_socket';
+import '../css/app.css'; // tell esbuild to bundle css as well
 
 let csrfToken = document
     .querySelector("meta[name='csrf-token']")
@@ -11,11 +11,12 @@ let liveSocket = new LiveSocket('/live', Socket, {
     params: { _csrf_token: csrfToken },
 });
 
-// connect if there are any LiveViews on the page
-liveSocket.connect();
+// I swear I like TS, even when it pulls this shennaigans
+declare global {
+    interface Window {
+        liveSocket: LiveSocket;
+    }
+}
 
-// expose liveSocket on window for web console debug logs and latency simulation:
-// >> liveSocket.enableDebug()
-// >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
-// >> liveSocket.disableLatencySim()
+liveSocket.connect();
 window.liveSocket = liveSocket;

@@ -1,4 +1,4 @@
-defmodule Chatter.OIDC.UserInfo do
+defmodule Chatter.UserInfo do
   @type t :: %__MODULE__{
           :given_name => String.t(),
           :family_name => String.t(),

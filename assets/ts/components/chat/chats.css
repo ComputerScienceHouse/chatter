@@ -1,0 +1,24 @@
+.chats {
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chats {
+  scrollbar-width: thin;
+  scrollbar-color: #949494 transparent;
+}
+
+.chats::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chats::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+  background-color: #949494;
+  border-radius: 20px;
+  border: 3px solid transparent;
+}

@@ -1,7 +1,7 @@
 defmodule ChatterWeb.UserSocket do
   use Phoenix.Socket
 
-  channel "room:*", ChatterWeb.RoomChannel
+  channel "space:*", ChatterWeb.SpaceChannel
 
   @impl true
   def connect(_params, socket, _connect_info) do

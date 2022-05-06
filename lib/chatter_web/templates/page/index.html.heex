@@ -7,8 +7,48 @@
   </div>
   <div class="row">
     <div class="col-md-2">
-      <ul class="list-group" id="online-users">
-      </ul>
+      <div id="online-users"></div>
+    </div>
+
+    <div class="col-md-6 col-md-pull-3 col-sm-12">
+      <div class="card bd-light mb-3">
+        <div class="card-header">
+          <h3 class="card-title spaces-header">Spaces</h3>
+          <button class="btn btn-primary" style="float: right" id="btn-new-space">New Space</button>
+        </div>
+        <div class="card-body spaces-card-body">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="space-title">
+                  House Meeting
+                  <span class="badge badge-light">0 / 100</span>
+                </td>
+                <td>
+                  <button class="btn space-join-btn">Join</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="space-title">
+                  House Meeting
+                </td>
+                <td>
+                  <button class="btn space-join-btn">Join</button>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" id="chat-component">
     </div>
   </div>
 </section>
+
+<script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/pages/index.js")}></script>
+<link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/pages/index.css" )}>

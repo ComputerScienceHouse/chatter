@@ -1,6 +1,7 @@
 defmodule ChatterWeb.OIDCController do
   use ChatterWeb, :controller
-  alias Chatter.OIDC.UserInfo
+  alias Chatter.UserController
+  alias Chatter.UserInfo
 
   @moduledoc """
   Manage CSH OIDC related routes
@@ -18,7 +19,8 @@ defmodule ChatterWeb.OIDCController do
       preferred_username: p_username,
       given_name: g_name,
       family_name: f_name,
-      is_admin?: p_username == "holewinski" # TODO: replace with list of RTP's
+      # TODO: replace with list of RTP's
+      is_admin?: p_username == "holewinski"
     }
 
     conn
