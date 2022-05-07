@@ -1,24 +1,30 @@
 defmodule ChatterWeb.State.Chats do
-  use GenServer
+  @bucket_key "chats"
+  use ChatterWeb, :stateful_genserver
 
   def start_link(_state) do
     GenServer.start_link(__MODULE__, %{}, name: __MODULE__)
   end
 
   def init(msgs) do
-    {:ok, msgs}
+    if ChatterWeb.State.Bucket.get(@bucket_key) == nil do
+      ChatterWeb.State.Bucket.put(@bucket_key, msgs)
+      {:ok, msgs}
+    else
+      {:ok, ChatterWeb.State.Bucket.get(@bucket_key)}
+    end
   end
 
   def handle_cast({:add, msg, user_id, channel}, msgs) do
-    {:noreply, Map.put(msgs, channel, [{msg, user_id} | Map.get(msgs, channel) || []])}
+    Map.put(msgs, channel, [{msg, user_id} | Map.get(msgs, channel) || []]) |> no_reply
   end
 
   def handle_cast({:clear, channel}, msgs) do
-    {:noreply, Map.put(msgs, channel, nil)}
+    Map.put(msgs, channel, nil) |> no_reply
   end
 
   def handle_call(:view, _from, msgs) do
-    {:reply, msgs, msgs}
+    reply(msgs, msgs)
   end
 
   ## helper functions

@@ -1,0 +1,13 @@
+.online-users-header {
+  display: inline-block;
+  vertical-align: text-top; 
+  margin-bottom: 0px !important;
+}
+
+.online-users-card-body {
+  padding: 0.25rem;
+}
+
+li.online-user {
+  border: none;
+}

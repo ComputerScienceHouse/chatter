@@ -104,6 +104,9 @@ defmodule ChatterWeb.State.Spaces do
   def handle_call({:view, space_name}, _from, spaces),
     do: reply(Map.get(spaces, space_name), spaces)
 
+  def handle_call(:get_all_space_names, _from, spaces),
+    do: spaces |> Map.keys |> reply(spaces)
+
   ## debug
 
   # TODO: remove for v1?
@@ -123,6 +126,8 @@ defmodule ChatterWeb.State.Spaces do
   def get_space(space_name), do: GenServer.call(__MODULE__, {:view, space_name})
 
   def next_topic(space_name), do: GenServer.call(__MODULE__, {:next_topic, space_name})
+
+  def get_all_space_names, do: GenServer.call(__MODULE__, :get_all_space_names)
 
   ## util
 

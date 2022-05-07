@@ -2,6 +2,7 @@ defmodule ChatterWeb.SpaceChannel do
   use ChatterWeb, :channel
   alias ChatterWeb.Presence
   alias ChatterWeb.State.Chats
+  alias ChatterWeb.State.Spaces
 
   def join("space:" <> space_id, %{"user_id" => user_id}, socket) do
     socket =
@@ -15,7 +16,8 @@ defmodule ChatterWeb.SpaceChannel do
      %{
        channel: "space:#{space_id}",
        chats:
-         for({msg, user_id} <- Chats.get_channel(space_id), do: %{msg: msg, user_id: user_id})
+         for({msg, user_id} <- Chats.get_channel(space_id), do: %{msg: msg, user_id: user_id}),
+       spaces: Spaces.get_all_space_names()
      }, socket}
   end
 
@@ -54,5 +56,11 @@ defmodule ChatterWeb.SpaceChannel do
         {msg, user_id} <- Chats.get_channel(socket.assigns[:space_id]),
         do: %{msg: msg, user_id: user_id}
       )}, socket}
+  end
+
+  def handle_in("space:post", %{"name" => space_name, "user_id" => user_id}, socket) do
+    Spaces.create_space(space_name, user_id)
+    broadcast!(socket, "space:new", %{name: space_name, user_id: user_id})
+    {:noreply, socket}
   end
 end

@@ -5,12 +5,17 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "Chatter" , suffix: " · Phoenix Framework" %>
-      <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/csh-material-bootstrap@4.5.2/dist/csh-material-bootstrap.min.css" />
-      <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
-      <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css" )}>
+  <%= live_title_tag assigns[:page_title] || "Chatter" , suffix: " · Phoenix Framework" %>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/csh-material-bootstrap@4.5.2/dist/csh-material-bootstrap.min.css" />
+  <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css" )}>
+
+  <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>

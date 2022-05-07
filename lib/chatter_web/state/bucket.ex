@@ -36,4 +36,6 @@ defmodule ChatterWeb.State.Bucket do
   def revert do
     Agent.update(__MODULE__, &Map.put(&1, :cur, Map.get(&1, :prev)))
   end
+
+  def get_all, do: Agent.get(__MODULE__, & &1)
 end

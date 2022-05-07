@@ -1,0 +1,18 @@
+td.space-title {
+  font-size: 14pt;
+  vertical-align: middle;
+}
+
+.spaces-header {
+  display: inline-block;
+  vertical-align: text-top; 
+  margin-bottom: 0px !important;
+}
+
+.spaces-card-body {
+  padding-bottom: 0px !important;
+}
+
+.space-join-btn {
+  float: right;
+}
