@@ -1,9 +1,9 @@
 {
-    "name": "phoenix-js",
-    "version": "1.0.0",
-    "license": "MIT",
-    "devDependencies": {
-        "@types/phoenix": "^1.5.4",
-        "@types/phoenix_live_view": "^0.15.1"
-    }
+  "name": "chatter-js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/phoenix": "^1.5.4",
+    "@types/phoenix_live_view": "^0.15.1"
+  }
 }
