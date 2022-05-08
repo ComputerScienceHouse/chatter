@@ -9,6 +9,7 @@ defmodule ChatterWeb.Router do
     plug :put_root_layout, {ChatterWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug ChatterWeb.Plugs.AssignGitRev
   end
 
   pipeline :api do

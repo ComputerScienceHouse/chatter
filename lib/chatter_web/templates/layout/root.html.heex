@@ -42,6 +42,12 @@
   </header>
 
   <%= @inner_content %>
+  <footer>
+    <div class="row" style="display: flex; width: 100%; align-items: center; justify-content: center; flex-direction: row">
+      <a href={"https://github.com/computersciencehouse/chatter/tree/#{@git_rev}"}><%= @git_rev %></a> &nbsp;|&nbsp;
+      <p style="margin: 0px;">Made with ♥ by <a href="https://profiles.csh.rit.edu/user/holewinski">@holewinski</a></p>
+    </div>
+  </footer>
 </body>
 
 </html>
